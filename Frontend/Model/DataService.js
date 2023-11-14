@@ -1,6 +1,6 @@
 class DataService{
     constructor(){
-        
+        axios.defaults.baseURL = "http://localhost:8000/";
     }
     getData(vegpont, callback, hibaCallback){
         axios.get(vegpont)
@@ -22,16 +22,41 @@ class DataService{
         });
     }
 
-    postData(vegpont, data){
-        axios.post(vegpont, {
-            data
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+    postAxiosData (url, data) { 
+        console.log(data)
+        axios
+            .post(url, data)
+            .then((response) => {
+                console.log("RESP", response);
+            })
+            .catch((error) => {
+                console.log("hiba", error);
+            });
+    }
+
+    putAxiosData (url, data) { 
+        console.log(data)
+        console.log(`${url}/${data.writer_id}`);
+        axios
+            .put(`${url}/${data.writer_id}`, data)
+            .then((response) => {
+                console.log("RESP", response);
+            })
+            .catch((error) => {
+                console.log("hiba", error);
+            });
+    }
+
+    deleteAxiosData(url, id) {
+        console.log(`${url}/${id}`);
+        axios
+            .delete(`${url}/${id}`)
+            .then((response) => {
+                console.log("RESP", response);
+            })
+            .catch((error) => {
+                console.log("hiba", error);
+            });
     }
 
 } export default DataService

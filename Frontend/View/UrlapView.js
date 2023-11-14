@@ -50,10 +50,8 @@ class UrlapView{
     }
     
     #esemenyLetrehozas(esemenynev){
-        console.log(esemenynev);
         const ESEMENYEM = new CustomEvent(esemenynev, {detail: this.#urlapAdat});
-        console.log(window.dispatchEvent(ESEMENYEM));
-        console.log("hehe");
+        window.dispatchEvent(ESEMENYEM);
     }
 
 } export default UrlapView

@@ -25,7 +25,7 @@ class SorView{
         }
         
         $(this.keszElem).on("click", () =>{
-            this.#esemenyTrigger("kesz");
+            this.#esemenyTrigger("update");
         })
         
         $(this.xElem).on("click", () =>{
@@ -33,7 +33,7 @@ class SorView{
         })
         
         $(this.trashElem).on("click", () =>{
-            this.#esemenyTrigger("torol");
+            this.#esemenyTrigger("delete");
         })
     }
 
@@ -44,13 +44,13 @@ class SorView{
                 txt+=`<td>${this.#obj[x]}</td>`;
             }
         }
-        txt+=`<td><i class="fa fa-check kesz"></i><i class="fa fa-remove x"></i></i><i class="fa fa-trash trash"></i></td><td></td></tr>`;
+        txt+=`<td><i class="fa fa-pencil kesz"></i><i class="fa fa-remove x"></i></i><i class="fa fa-trash trash"></i></td><td></td></tr>`;
         this.szuloElem.append(txt);
     }
 
     #esemenyTrigger(esemenyneve){
         const esemenyem = new CustomEvent(esemenyneve,
-            {detail:this.#index})
+            {detail:this.#obj['writer_id']})
 
         window.dispatchEvent(esemenyem);
     }

@@ -17,4 +17,15 @@ class WriterController extends Controller
         $writer->szul = $request->szul;
         $writer->save();
     }
+
+    public function delete($id) {
+        return Writer::find($id)->delete();
+    }
+
+    public function update(Request $request, $id) {
+        $writer = Writer::find($id);
+        $writer->nev = $request->nev;
+        $writer->szul = $request->szul;
+        $writer->save();
+    }
 }
