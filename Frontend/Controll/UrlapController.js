@@ -21,6 +21,8 @@ class UrlapController{
             new UrlapView(URLAPMODEL.leiro,$(".urlap"), "edit");
             URLAPVIEW.editElem.css("display", "inline");
             URLAPVIEW.submitElem.css("display", "none");
+            $(".urlap").find("form input[type='text']").val(event.detail.nev);
+            $(".urlap").find("form input[type='number']").val(event.detail.szul);
             let obj = event.detail;
             $(window).on("update", (event) => {
                 const DATAS = event.detail;
