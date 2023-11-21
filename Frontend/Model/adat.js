@@ -8,7 +8,7 @@ export const ADATLEIRAS={
         validalas: "név nagybetűvel kezdődok és legalább 3 karakter",
     },
 
-    szulEv: {
+    szul: {
         megjelenes: "Születési év",
         tipus: "number",
         value: "2000",

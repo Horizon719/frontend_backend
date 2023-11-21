@@ -34,11 +34,11 @@ class DataService{
             });
     }
 
-    putAxiosData (url, data) { 
+    putAxiosData (url, data, id) { 
         console.log(data)
-        console.log(`${url}/${data.writer_id}`);
+        console.log(`${url}/${id}`);
         axios
-            .put(`${url}/${data.writer_id}`, data)
+            .put(`${url}/${id}`, data)
             .then((response) => {
                 console.log("RESP", response);
             })

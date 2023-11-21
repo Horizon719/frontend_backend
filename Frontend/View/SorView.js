@@ -25,7 +25,7 @@ class SorView{
         }
         
         $(this.keszElem).on("click", () =>{
-            this.#esemenyTrigger("update");
+            this.#esemenyTrigger("modosit");
         })
         
         $(this.xElem).on("click", () =>{
@@ -50,7 +50,7 @@ class SorView{
 
     #esemenyTrigger(esemenyneve){
         const esemenyem = new CustomEvent(esemenyneve,
-            {detail:this.#obj['writer_id']})
+            {detail:this.#obj})
 
         window.dispatchEvent(esemenyem);
     }

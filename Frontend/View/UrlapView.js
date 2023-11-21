@@ -6,13 +6,21 @@ class UrlapView{
     #urlapElemLista=[];
     #osszesElemValidE = true;
     #urlapAdat = {};
-    constructor(leiro, szuloElem){
+    #tipus;
+    constructor(leiro, szuloElem, tipus){
         this.szuloElem = szuloElem;
         this.#leiro = leiro;
+        this.#tipus = tipus;
         this.szuloElem.append("<form>");
         this.formElem = this.szuloElem.children("form");
         this.#urlapOsszerak();
         this.submitElem = $("#submit");
+        this.editElem = $("#edit");
+        this.editElem.css("display", "none");
+        if (this.#tipus == "edit") {
+            this.submitElem.css("display", "none");
+            this.editElem.css("display", "inline");
+        }
         this.submitElem.on("click", (event)=>{
             event.preventDefault();
             this.#osszesElemValidE = true;
@@ -25,6 +33,20 @@ class UrlapView{
                 });
                 
                 this.#esemenyLetrehozas("valid");
+            } else {
+                console.log("nem valid urlap");
+            }
+        })
+        this.editElem.on("click", (event)=>{
+            event.preventDefault();
+            this.#urlapElemLista.forEach(elem => {
+                this.#osszesElemValidE = this.#osszesElemValidE && elem.valid;
+            });
+            if (this.#osszesElemValidE) {
+                this.#urlapElemLista.forEach(elem => {
+                    this.#urlapAdat[elem.key] = elem.value;
+                });
+                this.#esemenyLetrehozas("update");
             } else {
                 console.log("nem valid urlap");
             }
@@ -46,6 +68,7 @@ class UrlapView{
             }
         }
         let txt=`<input type="submit" id="submit" value="OK"></input>`;
+        txt += `<input type="submit" id="edit" value="Módosítás"></input>`;
         this.formElem.append(txt);
     }
     
