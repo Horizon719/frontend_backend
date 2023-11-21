@@ -28,6 +28,7 @@ class DataService{
             .post(url, data)
             .then((response) => {
                 console.log("RESP", response);
+                location.reload();
             })
             .catch((error) => {
                 console.log("hiba", error);
@@ -41,6 +42,7 @@ class DataService{
             .put(`${url}/${id}`, data)
             .then((response) => {
                 console.log("RESP", response);
+                location.reload();
             })
             .catch((error) => {
                 console.log("hiba", error);
@@ -53,6 +55,7 @@ class DataService{
             .delete(`${url}/${id}`)
             .then((response) => {
                 console.log("RESP", response);
+                location.reload();
             })
             .catch((error) => {
                 console.log("hiba", error);
