@@ -28,6 +28,7 @@ class DataService{
             })
             .catch((error) => {
                 console.log("hiba", error);
+                this.#loader.keresUtan();
             });
     }
 
@@ -42,6 +43,7 @@ class DataService{
             })
             .catch((error) => {
                 console.log("hiba", error);
+                this.#loader.keresUtan();
             });
     }
 
@@ -55,6 +57,7 @@ class DataService{
             })
             .catch((error) => {
                 console.log("hiba", error);
+                this.#loader.keresUtan();
             });
     }
 

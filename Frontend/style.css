@@ -15,6 +15,34 @@ body{
     align-items: center;
 }
 
+button{
+    background-color: #FDE74C;
+    border: 1px solid black;
+    border-radius: 10px !important;
+}
+
+input[type="submit"] {
+    background-color: #FDE74C;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.card{
+    background-color: transparent !important;
+}
+
+.card-header{
+    background-color: rgb(111, 20, 20) !important;
+}
+
+.card-body{
+    background-color: rgb(61, 0, 0) !important;
+}
+
+.card-footer{
+    background-color: rgb(111, 20, 20) !important;
+}
+
 table td{
     color: #FDE74C !important;
     background-color: rgb(88, 88, 88) !important;
@@ -25,6 +53,7 @@ table td{
     justify-content: center;
     align-items: center;
 }
+
 .scene {
     position: relative;
     z-index: 2;

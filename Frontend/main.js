@@ -1,4 +1,9 @@
 import AdminController from "./Controll/AdminController.js";
+import PublikusController from "./Controll/PublikusController.js";
+
+const ADMIN = new AdminController();
+const PUBLIKUS = new PublikusController();
+
 $(function () {
      admin();
      $("#admin").on("click", () => {
@@ -19,12 +24,14 @@ function admin(){
           <div class="lista"></div>
           <div class="loader"></div>`;
      $("#alticle").html(txt);
-     new AdminController();
+     ADMIN.init();
 };
 
 function publikus(){
-     let txt = ``;
+     let txt = `<div class="kartya"></div>
+                <div class="loader"></div>`;
      $("#alticle").html(txt);
+     PUBLIKUS.init();
 };
 
 function kivalasztott(){
