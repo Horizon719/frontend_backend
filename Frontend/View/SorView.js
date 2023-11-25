@@ -1,3 +1,4 @@
+import Loader from "./Loader.js";
 
 class SorView{
 
@@ -26,6 +27,7 @@ class SorView{
         
         $(this.keszElem).on("click", () =>{
             this.#esemenyTrigger("modosit");
+            new Loader($(".loader"));
         })
         
         $(this.xElem).on("click", () =>{
@@ -34,6 +36,7 @@ class SorView{
         
         $(this.trashElem).on("click", () =>{
             this.#esemenyTrigger("delete");
+            new Loader($(".loader"));
         })
     }
 

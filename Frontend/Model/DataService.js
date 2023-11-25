@@ -1,24 +1,20 @@
+import Loader from "../View/Loader.js";
+
 class DataService{
+    #loader;
     constructor(){
         axios.defaults.baseURL = "http://localhost:8000/";
+        this.#loader = new Loader($(".loader"));
     }
     getData(vegpont, callback, hibaCallback){
         axios.get(vegpont)
         .then(function (response) {
-            // handle success
-            /* console.log(response);
-            console.log(response.data);
-            console.log(response.data.nevek);
-            console.log(response.status);
-            console.log(response.statusText); */
-            callback(response.data)
+            callback(response.data);
         })
         .catch(function (error) {
-            // handle error
             hibaCallback(error);
         })
         .finally(function () {
-            // always executed
         });
     }
 
@@ -28,7 +24,7 @@ class DataService{
             .post(url, data)
             .then((response) => {
                 console.log("RESP", response);
-                location.reload();
+                this.#loader.keresUtan();
             })
             .catch((error) => {
                 console.log("hiba", error);
@@ -42,7 +38,7 @@ class DataService{
             .put(`${url}/${id}`, data)
             .then((response) => {
                 console.log("RESP", response);
-                location.reload();
+                this.#loader.keresUtan();
             })
             .catch((error) => {
                 console.log("hiba", error);
@@ -55,7 +51,7 @@ class DataService{
             .delete(`${url}/${id}`)
             .then((response) => {
                 console.log("RESP", response);
-                location.reload();
+                this.#loader.keresUtan();
             })
             .catch((error) => {
                 console.log("hiba", error);

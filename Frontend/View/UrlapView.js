@@ -1,3 +1,4 @@
+import Loader from "./Loader.js";
 import NumberUrlapElem from "./NumberUrlapElem.js";
 import TextUrlapElem from "./TextUrlapElem.js";
 
@@ -7,6 +8,7 @@ class UrlapView{
     #osszesElemValidE = true;
     #urlapAdat = {};
     #tipus;
+    #loader;
     constructor(leiro, szuloElem, tipus){
         this.szuloElem = szuloElem;
         this.#leiro = leiro;
@@ -23,6 +25,7 @@ class UrlapView{
         }
         this.submitElem.on("click", (event)=>{
             event.preventDefault();
+            this.#loader= new Loader($(".loader"));
             this.#osszesElemValidE = true;
             this.#urlapElemLista.forEach(elem => {
                 this.#osszesElemValidE = this.#osszesElemValidE && elem.valid;
