@@ -35,7 +35,6 @@ class KartyaView{
     #esemenyTrigger(esemenyneve){
         const esemenyem = new CustomEvent(esemenyneve,
             {detail:this.#obj})
-
         window.dispatchEvent(esemenyem);
     }
 

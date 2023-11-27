@@ -11,29 +11,13 @@ class SorView{
         this.#sor();
 
         this.sorElem = this.szuloElem.children("tr:last-child");
-        this.keszElem = this.sorElem.children("td").children(".kesz");
-        this.xElem = this.sorElem.children("td").children(".x");
+        this.modosit = this.sorElem.children("td").children(".modosit");
         this.trashElem = this.sorElem.children("td").children(".trash");
-        
-        if (this.#obj.kesz) {
-            this.sorElem.css("background-color", "rgb(0, 206, 0)");
-            this.keszElem.css("display", "none");
-            this.xElem.css("display", "inline");
-        } else {
-            this.sorElem.css("background-color", "white");
-            this.xElem.css("display", "none");
-            this.keszElem.css("display", "inline");
-        }
-        
-        $(this.keszElem).on("click", () =>{
+        $(this.modosit).on("click", () =>{
             this.#esemenyTrigger("modosit");
             new Loader($(".loader"));
         })
-        
-        $(this.xElem).on("click", () =>{
-            this.#esemenyTrigger("megse");
-        })
-        
+    
         $(this.trashElem).on("click", () =>{
             this.#esemenyTrigger("delete");
             new Loader($(".loader"));
@@ -47,7 +31,7 @@ class SorView{
                 txt+=`<td>${this.#obj[x]}</td>`;
             }
         }
-        txt+=`<td><i class="fa fa-pencil kesz"></i><i class="fa fa-remove x"></i></i><i class="fa fa-trash trash"></i></td><td></td></tr>`;
+        txt+=`<td><i class="fa fa-pencil modosit"></i><i class="fa fa-trash trash"></i></td><td></td></tr>`;
         this.szuloElem.append(txt);
     }
 

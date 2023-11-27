@@ -12,7 +12,6 @@ class KivalasztottController{
     }
 
     init(){
-        
         this.loader = new Loader($(".loader"));
         this.#dataService.getData("api/choosens", this.megjelenit, this.hibaMegjelenit);
     }
