@@ -1,8 +1,10 @@
 import AdminController from "./Controll/AdminController.js";
+import KivalasztottController from "./Controll/KivalasztottController.js";
 import PublikusController from "./Controll/PublikusController.js";
 
 const ADMIN = new AdminController();
 const PUBLIKUS = new PublikusController();
+const KIVALASZTOTT = new KivalasztottController();
 
 $(function () {
      admin();
@@ -35,6 +37,8 @@ function publikus(){
 };
 
 function kivalasztott(){
-     let txt = ``;
+     let txt = `<div class="kivalasztott"></div>
+                <div class="loader"></div>`;
      $("#alticle").html(txt);
+     KIVALASZTOTT.init();
 };

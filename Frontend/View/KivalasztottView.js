@@ -1,7 +1,7 @@
 import Loader from "./Loader.js";
 import KartyaView from "./KartyaView.js";
 
-class PublikusView{
+class KivalasztottView{
     #lista=[];
     #szuloElem;
     #loader;
@@ -18,7 +18,7 @@ class PublikusView{
 
     megjelenit(){
         this.#lista.forEach((element, index) => {
-            new KartyaView(element, this.divElem, index, true);
+            new KartyaView(element, this.divElem, index, false);
         });
     }
-} export default PublikusView
+} export default KivalasztottView
